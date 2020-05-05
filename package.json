@@ -1,0 +1,22 @@
+{
+  "name": "coding-and-compression-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Danbut/OmSU-course-coding-and-compression-algorithms.git"
+  },
+  "author": "Buterus D. V. <danielbuterus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Danbut/OmSU-course-coding-and-compression-algorithms/issues"
+  },
+  "homepage": "https://github.com/Danbut/OmSU-course-coding-and-compression-algorithms#readme",
+  "devDependencies": {
+    "electron": "8.2.5"
+  }
+}
