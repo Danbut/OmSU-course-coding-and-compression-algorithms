@@ -1,8 +1,18 @@
 .container {
   position: absolute;
-  top: 30%;
-  left: 10px;
+  display: flex;
   text-align: center;
+  justify-items: center;
+}
+
+.ps {
+  font-size: 0.7rem;
+}
+
+.sec {
+  margin: 1rem;
+  border: 1px solid white;
+
 }
 
 .container h2 {
@@ -11,4 +21,9 @@
 
 .container a {
   font-size: 1.4rem;
+}
+
+.container main {
+  margin: 0rem 9%;
+  max-width: 80%;
 }
