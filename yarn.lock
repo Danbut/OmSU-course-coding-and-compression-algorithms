@@ -9836,6 +9836,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+lz-deflate@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/lz-deflate/-/lz-deflate-1.0.4.tgz#d95766666d11c440a2c795359b7ac0b8b291c952"
+  integrity sha512-CaIjNn0+lG2VkMy1YwwmzDa0o0tZriMYfxDc2gzFPpCt5g/krqDXgOTKuCxXUSnAumb0yDm2Ft2II+PCiIBcHQ==
+
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-2.1.0.tgz#5f0310e18b8be898cc07009295a30ae41e91e6f5"
