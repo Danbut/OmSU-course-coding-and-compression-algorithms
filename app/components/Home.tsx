@@ -38,6 +38,23 @@ const findG1 = (a,b,g2) => {
   return fieldDivide(7 - ((g2 * b) % 7), a)
 }
 
+const findGS = (a1, b1, c1, a2, b2, c2) => {
+  const cands = Array.from(Array(6), (el, i) => i + 1)
+  const fit1 = (g1, g2) => (a1 + b1 * g1 + c1 * g2) % 7 === 0
+  const fit2 = (g1, g2) => (a2 + b2 * g1 + c2 * g2) % 7 === 0
+
+  for(let g1Index in cands) {
+    for (let g2Index in cands) {
+      const g1 = cands[g1Index]
+      const g2 = cands[g2Index]
+      if(fit1(g1, g2) && fit2(g1, g2)) {
+        return ({g1, g2})
+      }
+    }
+  }
+  return ({g1: 0, g2: 0})
+}
+
 export default function Home() {
 
   const [message, setMessage] = useState("");
@@ -54,8 +71,7 @@ export default function Home() {
   const encodedMessageWithError = encodedMessage.map((digit, i) => ((digit) + Number(error[i])) % 7)
 
   const syndrome = [0,1,2,3,4,5].map(i => dft(encodedMessageWithError, i)).map(Number)
-  const g2 = findG2(syndrome[5], syndrome[3])
-  const g1 = findG1(syndrome[3], syndrome[2], g2)
+  const { g1, g2 } = findGS(syndrome[4], syndrome[3], syndrome[2], syndrome[5], syndrome[4], syndrome[3])
 
   const f1 = fieldDivide(7 - (syndrome[3] + g1 * syndrome[2]) % 7, g2)
   const f0 = fieldDivide(7 - (syndrome[2] + g1 * f1) % 7, g2)
@@ -69,7 +85,7 @@ export default function Home() {
         <p className={styles.ps}>
           Message length is 2 <br/> Error correction length is 4
         </p>
-        <input type="text" value={message} maxLength={2} onChange={event => {slice(2)
+        <input type="text" value={message} maxLength={2} onChange={event => {
             if(!isNaN(Number(event.target.value))) {
               setMessage(event.target.value)
             }
